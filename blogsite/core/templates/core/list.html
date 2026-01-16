@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}All Logs{% endblock %}
+
+{% block content %}
+<div class="list_page">
+    <h1>All Logs</h1>
+  <form method="get" action="" class="filter-bar">
+  <label for="sort">Sort by:</label>
+  <select name="filter" id="sort" onchange="this.form.submit()">
+    <option value="">-- Select --</option>
+    <option value="today">Today</option>
+    <option value="7days">Last 7 Days</option>
+    <option value="30days">Last 30 days</option>
+  </select>
+</form>
+
+
+    <table border="1">
+      <tr>
+        <th>Sr.no</th>
+        <th>Person</th>
+        <th>Dept</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      {% for log in logs %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <a href="{% url "log_detail" log.pk %}"><td>{{ log.person }}</td></a>
+        <td>{{ log.dept.dept_name }}</td>
+        <td>{{ log.status }}</td>
+        <td>
+          <a href="{% url "update_log" log.pk %}">Update</a>
+          <a href="{% url "delete_log" log.pk %}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+{% endblock %}

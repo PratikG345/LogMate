@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Logs{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <nav>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'list' %}">All Logs</a>
+    <a href="{% url 'create_log' %}">Add Log</a>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>
