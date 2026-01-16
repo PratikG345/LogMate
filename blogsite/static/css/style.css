@@ -257,3 +257,90 @@ td a {
 td a:hover {
   text-decoration: underline;
 }
+
+/* =========================================================
+   Log Detail Page (Enhanced, Same Theme)
+========================================================= */
+.log-detail {
+  max-width: 760px;
+  background-color: #ffffff;
+  padding: 22px 24px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Title */
+.log-detail h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  color: #111827;
+}
+
+/* --- Meta section (short fields) --- */
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.detail-item:last-of-type {
+  border-bottom: none;
+}
+
+/* Label */
+.detail-item strong {
+  min-width: 130px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Value */
+.detail-item span,
+.detail-item div {
+  color: #111827;
+}
+
+/* --- Long text blocks --- */
+.detail-item.long-text {
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.detail-item.long-text strong {
+  min-width: unset;
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.detail-item.long-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #111827;
+  background-color: #f9fafb;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Back link */
+.log-detail a {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #2563eb;
+}
+
+.log-detail a:hover {
+  text-decoration: underline;
+}
