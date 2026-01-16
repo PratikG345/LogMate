@@ -9,7 +9,7 @@ from .forms import Form
 def home(req):
     return render(req,'home.html')
 
-def list(req):
+def log_list(req):
     filter_type = req.GET.get("filter")
     logs = Log.objects.all()
     today = now().date()
@@ -24,7 +24,8 @@ def list(req):
     return render(req,"core/list.html",{"logs":logs})
 
 def log_detail(req,pk):
-    return HttpResponse("blOG DETAIL")
+    logs = Log.objects.get(pk=pk)
+    return render(req,"core/log_detail.html",{"logs":logs})
 
 def create_log(req):
     forms = Form()
