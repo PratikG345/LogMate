@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+ {% block title %}Log Detail{% endblock %} 
+ {% block content %}
+<div class="log-detail">
+  <h1>Log Details</h1>
+    <div class="detail-item"><strong>Date:</strong> {{ logs.date }}</div>
+    
+    <div class="detail-item"><strong>Time:</strong> {{ logs.time }}</div>
+    
+    <div class="detail-item"><strong>Context:</strong> {{ logs.context }}</div>
+
+    <div class="detail-item"><strong>Person Name:</strong> {{ logs.person }}</div>
+    
+    <div class="detail-item"> <strong>Department:</strong> {{ logs.dept.dept_name }}</div>
+    
+    <div class="detail-item"><strong>Action:</strong> {{ logs.action }}</div>
+    
+    <div class="detail-item"><strong>Guidance:</strong> {{ logs.guidance }}</div>
+    
+    <div class="detail-item"><strong>Status:</strong> {{ logs.status }}</div>
+  <a href="{% url 'log_list' %}">Back to List</a>
+</div>
+{% endblock %}
