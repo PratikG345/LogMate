@@ -21,6 +21,7 @@
         <th>Sr.no</th>
         <th>Person</th>
         <th>Dept</th>
+        <th>Date</th>
         <th>Status</th>
         <th>Actions</th>
       </tr>
@@ -29,6 +30,7 @@
         <td>{{ forloop.counter }}</td>
         <td>{{ log.person }}</td>
         <td>{{ log.dept.dept_name }}</td>
+        <td>{{ log.date }}</td>
         <td>{{ log.status }}</td>
         <td>
           <a href="{% url "log_detail" log.pk %}">view</a>
