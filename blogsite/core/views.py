@@ -33,7 +33,7 @@ def create_log(req):
         form = Form(req.POST)
         if form.is_valid():
             form.save()
-        return redirect("list")
+        return redirect("log_list")
     else:
         forms = Form()
         return render(req,"core/add_log.html",{"forms":forms})
@@ -43,11 +43,11 @@ def update_log(req,pk):
     form = Form(req.POST or None, instance = forms)
     if form.is_valid():
         form.save()
-        return redirect("list")
+        return redirect("log_list")
     return render(req,"core/add_log.html",{"forms":form})
     
 def delete_log(req,pk):
     log = get_object_or_404(Log,pk=pk)
     log.delete()
-    return redirect("list")
+    return redirect("log_list")
     
