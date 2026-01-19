@@ -7,6 +7,38 @@ The application focuses on **accountability, traceability, and process disciplin
 
 ---
 
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="images/dashboard.png" width="525" />
+      <br/>
+      <strong>Dashboard</strong>
+    </td>
+   <td align="center" width="50%">
+      <img src="images/log_list.png" width="525" />
+      <br/>
+      <strong>Log list</strong>
+    </td>
+  </tr>
+ <tr>
+  <td align="center" width="50%">
+      <img src="images/log_detail.png" width="525" />
+      <br/>
+      <strong>Log Detail</strong>
+    </td>
+    <td align="center" width="50%">
+      <img src="images/add_log.png" width="525" />
+      <br/>
+      <strong>Create Log</strong>
+    </td>
+ </tr>
+</table>
+
+
+---
+
 ## Problem Statement
 
 In a non-technical operational role, maintaining accountability for daily tasks and important interactions required consistent manual logging, which was inefficient and error-prone.
