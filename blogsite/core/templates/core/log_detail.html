@@ -18,6 +18,6 @@
     <div class="detail-item"><strong>Guidance:</strong> {{ logs.guidance }}</div>
     
     <div class="detail-item"><strong>Status:</strong> {{ logs.status }}</div>
-  <a href="{% url 'log_list' %}">Back to List</a> <a href="{% url "update_log" log.pk %}">Update</a>
+  <a href="{% url 'log_list' %}">Back to List</a> <a href="{% url "update_log" logs.pk %}">Update</a>
 </div>
 {% endblock %}
