@@ -25,7 +25,7 @@
         <th>Status</th>
         <th>Actions</th>
       </tr>
-      {% for log in logs %}
+      {% for log in page_obj %}
       <tr>
         <td>{{ forloop.counter }}</td>
         <td>{{ log.person }}</td>
@@ -38,6 +38,64 @@
         </td>
       </tr>
       {% endfor %}
+      
     </table>
+    {% extends "base.html" %}
+{% load static %}
+{% block title %}All Logs{% endblock %}
+
+{% block content %}
+<div class="list_page">
+    <h1>All Logs</h1>
+  <form method="get" action="" class="filter-bar">
+  <label for="sort">Sort by:</label>
+  <select name="filter" id="sort" onchange="this.form.submit()">
+    <option value="">-- Select --</option>
+    <option value="today">Today</option>
+    <option value="7days">Last 7 Days</option>
+    <option value="30days">Last 30 days</option>
+  </select>
+</form>
+
+
+    <table border="1">
+      <tr>
+        <th>Sr.no</th>
+        <th>Person</th>
+        <th>Dept</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      {% for log in page_obj %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ log.person }}</td>
+        <td>{{ log.dept.dept_name }}</td>
+        <td>{{ log.date }}</td>
+        <td>{{ log.status }}</td>
+        <td>
+          <a href="{% url "log_detail" log.pk %}">view</a>
+          <a href="{% url "delete_log" log.pk %}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+      <div class="pagination">
+  {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+  {% endif %}
+
+  <span>
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+  </span>
+
+  {% if page_obj.has_next %}
+    <a href="?filter={{ filter_type }}&page={{ page_obj.next_page_number }}">
+  {% endif %}
+</div>
+    </table>
+    </div>
+{% endblock %}
+
     </div>
 {% endblock %}
