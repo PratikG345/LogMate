@@ -12,17 +12,20 @@ def home(req):
 
 def log_list(req):
     filter_type = req.GET.get("filter")
-    logs = Log.objects.all()
+
+    # LATEST FIRST
+    logs = Log.objects.all().order_by('-date')
+
     today = now().date()
+
     if filter_type == "today":
-        logs  = logs.filter(date= today)
-        
+        logs = logs.filter(date=today)
     elif filter_type == "7days":
-        logs = logs.filter(date__gte = today - timedelta(days=7))
+        logs = logs.filter(date__gte=today - timedelta(days=7))
     elif filter_type == "30days":
-        logs = logs.filter(date__gte = today - timedelta(days=30))    
-    
-    paginator = Paginator(logs, 10)  # 10 logs per page
+        logs = logs.filter(date__gte=today - timedelta(days=30))
+
+    paginator = Paginator(logs, 10)
     page_number = req.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
@@ -34,6 +37,7 @@ def log_list(req):
             "filter_type": filter_type,
         }
     )
+
 
 def log_detail(req,pk):
     logs = Log.objects.get(pk=pk)
